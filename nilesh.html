@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Our Bookstore</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff; /* Light blue background */
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            flex-direction: column;
+        }
+
+        #container {
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            padding: 40px;
+            max-width: 800px;
+            margin: 20px;
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #ff6347; /* Tomato color */
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            margin: 0;
+        }
+
+        p {
+            font-size: 1.2em;
+            color: #555;
+            margin-top: 10px;
+        }
+
+        .cta-btn, .login-btn, .back-btn {
+            background-color: #ff6347; /* Tomato color */
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .cta-btn:hover, .login-btn:hover, .back-btn:hover {
+            background-color: #ff4500; /* Darker shade of tomato on hover */
+        }
+
+        /* Styling for login page */
+        #login-container {
+            display: none; /* Initially hidden */
+            padding-top: 20px;
+        }
+
+        input[type="text"], input[type="password"], input[type="search"] {
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 25px;
+            border: 2px solid #ff6347;
+            width: 100%;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #ff4500;
+        }
+
+        /* Styling for the catalog section */
+        #catalogue-container {
+            display: none; /* Initially hidden */
+            padding-top: 20px;
+        }
+
+        #catalogue {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+        }
+
+        .book-item {
+            background-color: #dbcf65;
+            border-radius: 10px;
+            padding: 15px;
+            flex: 1 1 22%;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            transition: transform 0.3s;
+        }
+
+        .book-item:hover {
+            transform: scale(1.05);
+        }
+
+        .book-title {
+            color: #ff6347;
+            font-size: 1.3em;
+            margin: 0;
+        }
+
+        .book-info {
+            font-size: 1em;
+            color: #333;
+            margin-top: 10px;
+        }
+
+        .search-bar {
+            margin: 20px 0;
+        }
+
+        .search-bar input {
+            width: 80%;
+            padding: 10px;
+            font-size: 1em;
+            border: 2px solid #ff6347;
+            border-radius: 25px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Home Page -->
+<div id="home-container">
+    <header>
+        <h1>Welcome to Our Bookstore!</h1>
+        <p>Your one-stop shop for all Engineering Books</p>
+        <button class="cta-btn" onclick="document.getElementById('login-container').style.display='block'; document.getElementById('home-container').style.display='none';">Go to Login Page</button>
+    </header>
+</div>
+
+<!-- Login Page -->
+<div id="login-container">
+    <h1>Login to Your Account</h1>
+    <form>
+        <input type="text" id="username" placeholder="Enter your username" required><br>
+        <input type="password" id="password" placeholder="Enter your password" required><br>
+        <button class="login-btn" type="button" onclick="document.getElementById('catalogue-container').style.display='block'; document.getElementById('login-container').style.display='none';">Login</button>
+    </form>
+    <button class="back-btn" onclick="document.getElementById('home-container').style.display='block'; document.getElementById('login-container').style.display='none';">Back to Home Page</button>
+</div>
+
+<!-- Catalogue Section (Initially Hidden) -->
+<div id="catalogue-container">
+    <h1>Engineering Book Catalogue</h1>
+    
+    <!-- Search Bar -->
+    <div class="search-bar">
+        <input type="search" id="searchInput" placeholder="Search for books...">
+    </div>
+    
+    <div id="catalogue">
+        <!-- Book 1 -->
+        <div class="book-item">
+            <h3 class="book-title">Introduction to Thermodynamics</h3>
+            <p class="book-info">Author: Richard E. Sonntag</p>
+            <p class="book-info">Price: ₹4,979</p>
+            <p class="book-info">Quantity Available: 10</p>
+        </div>
+
+        <!-- Book 2 -->
+        <div class="book-item">
+            <h3 class="book-title">Fundamentals of Fluid Mechanics</h3>
+            <p class="book-info">Author: Bruce R. Munson</p>
+            <p class="book-info">Price: ₹7,469</p>
+            <p class="book-info">Quantity Available: 8</p>
+        </div>
+
+        <!-- Book 3 -->
+        <div class="book-item">
+            <h3 class="book-title">Electrical Engineering: Principles and Applications</h3>
+            <p class="book-info">Author: Allan R. Hambley</p>
+            <p class="book-info">Price: ₹6,639</p>
+            <p class="book-info">Quantity Available: 12</p>
+        </div>
+
+        <!-- Book 4 -->
+        <div class="book-item">
+            <h3 class="book-title">Engineering Mechanics: Dynamics</h3>
+            <p class="book-info">Author: J.L. Meriam, L.G. Kraige</p>
+            <p class="book-info">Price: ₹8,299</p>
+            <p class="book-info">Quantity Available: 5</p>
+        </div>
+
+        <!-- Book 5 -->
+        <div class="book-item">
+            <h3 class="book-title">Design of Concrete Structures</h3>
+            <p class="book-info">Author: Arthur H. Nilson</p>
+            <p class="book-info">Price: ₹10,779</p>
+            <p class="book-info">Quantity Available: 6</p>
+        </div>
+
+        <!-- Book 6 -->
+        <div class="book-item">
+            <h3 class="book-title">Signals and Systems</h3>
+            <p class="book-info">Author: Alan V. Oppenheim</p>
+            <p class="book-info">Price: ₹5,489</p>
+            <p class="book-info">Quantity Available: 7</p>
+        </div>
+
+        <!-- Book 7 -->
+        <div class="book-item">
+            <h3 class="book-title">Control Systems Engineering</h3>
+            <p class="book-info">Author: Norman S. Nise</p>
+            <p class="book-info">Price: ₹6,299</p>
+            <p class="book-info">Quantity Available: 9</p>
+        </div>
+
+        <!-- Book 8 -->
+        <div class="book-item">
+            <h3 class="book-title">Digital Design</h3>
+            <p class="book-info">Author: M. Morris Mano</p>
+            <p class="book-info">Price: ₹4,999</p>
+            <p class="book-info">Quantity Available: 15</p>
+        </div>
+    </div>
+
+    <button class="back-btn" onclick="document.getElementById('home-container').style.display='block'; document.getElementById('catalogue-container').style.display='none';">Back to Home Page</button>
+</div>
+
+</body>
+</html>
